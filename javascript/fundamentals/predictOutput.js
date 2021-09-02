@@ -14,7 +14,19 @@ const employee = {
 };
 const { name: otherName } = employee;
 //Predict the output
-console.log(name);              // Reference error: name 
-console.log(otherName);
+// console.log(name);              // Reference error: name 
+console.log(otherName);            // Elon
 // Output
-console.log(name);              // ReferenceError: name is not defined
+// console.log(name);              // ReferenceError: name is not defined
+
+// PROBLEM 3
+const person = {
+	name: "Phil Smith",
+	age: 47,
+	height: "6 feet",
+};
+const password = "12345";
+const { password: hashedPassword } = person;
+//Predict the output
+console.log(password);          // 12345
+console.log(hashedPassword);    // undefined
