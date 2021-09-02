@@ -5,3 +5,14 @@ const [, otherRandomCar] = cars;
 //Predict the output
 console.log(randomCar);         // Tesla
 console.log(otherRandomCar);    // Mercedes
+
+// PROBLEM 2
+const employee = {
+	name: "Elon",
+	age: 47,
+	company: "Tesla",
+};
+const { name: otherName } = employee;
+//Predict the output
+console.log(name);              // Reference error: name 
+console.log(otherName);
