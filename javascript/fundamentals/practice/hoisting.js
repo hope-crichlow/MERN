@@ -175,16 +175,16 @@ console.log(genre);
 // 7
 
 // GIVEN
-// dojo = "san jose";
-// console.log(dojo);
-// learn();
-// function learn() {
-// 	dojo = "seattle";
-// 	console.log(dojo);
-// 	var dojo = "burbank";
-// 	console.log(dojo);
-// }
-// console.log(dojo);
+dojo = "san jose";
+console.log(dojo);
+learn();
+function learn() {
+	dojo = "seattle";
+	console.log(dojo);
+	var dojo = "burbank";
+	console.log(dojo);
+}
+console.log(dojo);
 
 // AFTER HOISTING BY THE INTERPRETER
 
@@ -207,4 +207,7 @@ console.log(genre);
 // console.log(dojo);                  // log global 'dojo', output: 'san jose'
 
 	// RESULT
-// OUTPUT:
+// OUTPUT: san jose
+//         seattle
+//         burbank
+//         sanjose
