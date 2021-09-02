@@ -22,6 +22,7 @@ function test() {
 	console.log(needle);
 }
 // AFTER HOISTING BY THE INTERPRETER
+
 	// PREDICTION
 // OUTPUT: error
 
@@ -41,3 +42,27 @@ function test() {
 // }
 // test();                  // 'test()' is called, the console.log runs and outputs 'magnet'
 
+// 3
+
+// GIVEN
+// var brendan = "super cool";
+// function print() {
+// 	brendan = "only okay";
+// 	console.log(brendan);
+// }
+// console.log(brendan);
+// AFTER HOISTING BY THE INTERPRETER
+
+	// PREDICTION
+// OUTPUT: super cool
+
+// var brendan;                 // 'brendan' is declared, it's global and gets hoisted
+// brendan = "super cool";      // assign the value of 'super cool' to the global 'brendan'
+// function print() {           // 'print()' gets hoisted to the top
+// 	brendan = "only okay";  // asign the value of 'only ok' to the function scoped 'brendan'
+// 	console.log(brendan);   // log 'brendan' as 'only ok'
+// }
+// console.log(brendan);        // console.log runs and outputs 'super cool', the value assigned to the global 'brendan'
+
+	// RESULT
+// OUTPUT:
