@@ -1,7 +1,7 @@
 // 1
 // GIVEN
-// console.log(hello);
-// var hello = "world";
+console.log(hello);
+var hello = "world";
 
 // AFTER HOISTING BY THE INTERPRETER
     // PREDICTION
@@ -9,4 +9,4 @@
 // console.log(hello); // logs undefined
 // var hello = "world";
     // RESULT
-
+// console.log(hello); // logs undefined
