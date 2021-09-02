@@ -194,7 +194,7 @@ console.log(dojo);
 //         burbank
 //         sanjose
 
-// function learn() {                  // 'learn()' gets hoisted to the top
+// function learn() {                  //'learn()' gets hoisted to the top
 // 	var dojo;                       // 'dojo' declared, gets hoisted to top of its scope
 // 	dojo = "seattle";               // assign the value of 'seattle' to function scoped 'dojo'
 // 	console.log(dojo);              // log 'dojo' as 'seattle'
