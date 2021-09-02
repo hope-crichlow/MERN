@@ -61,11 +61,11 @@ console.log(brendan);
 // OUTPUT: super cool
 
 // var brendan;                 // 'brendan' is declared, it's global and gets hoisted
-// brendan = "super cool";      // assign the value of 'super cool' to the global 'brendan'
 // function print() {           // 'print()' gets hoisted to the top
 // 	brendan = "only okay";  // assign the value of 'only ok' to the function scoped 'brendan'
 // 	console.log(brendan);   // log 'brendan' as 'only ok'
 // }
+// brendan = "super cool";      // assign the value of 'super cool' to the global 'brendan'
 // console.log(brendan);        // console.log runs and outputs 'super cool', the value assigned to the global 'brendan'
 
 	// RESULT
@@ -75,14 +75,14 @@ console.log(brendan);
 // 4
 
 // GIVEN
-// var food = "chicken";
-// console.log(food);
-// eat();
-// function eat() {
-// 	food = "half-chicken";
-// 	console.log(food);
-// 	var food = "gone";
-// }
+var food = "chicken";
+console.log(food);
+eat();
+function eat() {
+	food = "half-chicken";
+	console.log(food);
+	var food = "gone";
+}
 
 // AFTER HOISTING BY THE INTERPRETER
 
@@ -90,6 +90,15 @@ console.log(brendan);
 // OUTPUT: chicken
 //         half-chicken
 
+// var food;
+// food = "chicken";
+// console.log(food);
+// eat();
+// function eat() {
+// 	food = "half-chicken";
+// 	console.log(food);
+// 	var food = "gone";
+// }
 
 	// RESULT
 // OUTPUT:
