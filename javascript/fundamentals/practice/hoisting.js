@@ -4,6 +4,7 @@
 // var hello = "world";
 
 // AFTER HOISTING BY THE INTERPRETER
+
     // PREDICTION
 // var hello;
 // console.log(hello); // logs undefined
@@ -21,6 +22,7 @@ function test() {
 	var needle = "magnet";
 	console.log(needle);
 }
+
 // AFTER HOISTING BY THE INTERPRETER
 
 	// PREDICTION
@@ -42,6 +44,7 @@ function test() {
 // }
 // test();                  // 'test()' is called, the console.log runs and outputs 'magnet'
 
+
 // 3
 
 // GIVEN
@@ -51,6 +54,7 @@ function print() {
 	console.log(brendan);
 }
 console.log(brendan);
+
 // AFTER HOISTING BY THE INTERPRETER
 
 	// PREDICTION
@@ -66,3 +70,26 @@ console.log(brendan);
 
 	// RESULT
 // OUTPUT: super cool
+
+
+// 4
+
+// GIVEN
+// var food = "chicken";
+// console.log(food);
+// eat();
+// function eat() {
+// 	food = "half-chicken";
+// 	console.log(food);
+// 	var food = "gone";
+// }
+
+// AFTER HOISTING BY THE INTERPRETER
+
+	// PREDICTION
+// OUTPUT: chicken
+//         half-chicken
+
+
+	// RESULT
+// OUTPUT:
