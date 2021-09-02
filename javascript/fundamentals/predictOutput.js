@@ -16,3 +16,5 @@ const { name: otherName } = employee;
 //Predict the output
 console.log(name);              // Reference error: name 
 console.log(otherName);
+// Output
+console.log(name);              // ReferenceError: name is not defined
