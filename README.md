@@ -1,6 +1,3 @@
 # MERN Stack
 
-- MongoDB
-- Express
-- React
-- Node
+### MERN stack practice exercises, assignments, and projects.
