@@ -132,16 +132,16 @@ function eat() {
 // 6
 
 // GIVEN
-// console.log(genre);
-// var genre = "disco";
-// rewind();
-// function rewind() {
-// 	genre = "rock";
-// 	console.log(genre);
-// 	var genre = "r&b";
-// 	console.log(genre);
-// }
-// console.log(genre);
+console.log(genre);
+var genre = "disco";
+rewind();
+function rewind() {
+	genre = "rock";
+	console.log(genre);
+	var genre = "r&b";
+	console.log(genre);
+}
+console.log(genre);
 
 // AFTER HOISTING BY THE INTERPRETER
 
@@ -165,4 +165,7 @@ function eat() {
 // console.log(genre);              // log global 'genre', output: 'disco'
 
 	// RESULT
-// OUTPUT:
+// OUTPUT: undefined 
+//         rock 
+//         r&b 
+//         disco
