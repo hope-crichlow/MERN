@@ -1,4 +1,5 @@
 // 1
+
 // GIVEN
 // console.log(hello);
 // var hello = "world";
@@ -161,7 +162,7 @@ console.log(genre);
 // }
 // console.log(genre);              // console.log runs, output: 'undefined'
 // genre = "disco";                 // assign the value of 'disco' to global variable 'genre'
-// rewind();                        // 'rewind()' is called, the 2 function scoped logs run, output: rock '\n' r&b
+// rewind();                        // 'rewind()' is called, the 2 function scoped logs run, output: 'rock' ,'r&b'
 // console.log(genre);              // log global 'genre', output: 'disco'
 
 	// RESULT
@@ -169,3 +170,41 @@ console.log(genre);
 //         rock 
 //         r&b 
 //         disco
+
+
+// 7
+
+// GIVEN
+// dojo = "san jose";
+// console.log(dojo);
+// learn();
+// function learn() {
+// 	dojo = "seattle";
+// 	console.log(dojo);
+// 	var dojo = "burbank";
+// 	console.log(dojo);
+// }
+// console.log(dojo);
+
+// AFTER HOISTING BY THE INTERPRETER
+
+	// PREDICTION
+// OUTPUT: san jose
+//         seattle
+//         burbank
+//         sanjose
+
+// function learn() {                  // 'learn()' gets hoisted to the top
+// 	var dojo;                       // 'dojo' declared, gets hoisted to top of its scope
+// 	dojo = "seattle";               // assign the value of 'seattle' to function scoped 'dojo'
+// 	console.log(dojo);              // log 'dojo' as 'seattle'
+// 	dojo = "burbank";               // assign the value of 'burbank' to function scoped 'dojo'
+// 	console.log(dojo);              // log 'dojo' as 'burbank'
+// }
+// dojo = "san jose";                  // assign value of 'san jose' to global 'dojo'
+// console.log(dojo);                  // log global 'dojo', output: 'san jose'
+// learn();                            // 'learn()' is called, 2 function scoped console.logs run, output: 'seattle', 'burbank'
+// console.log(dojo);                  // log global 'dojo', output: 'san jose'
+
+	// RESULT
+// OUTPUT:
