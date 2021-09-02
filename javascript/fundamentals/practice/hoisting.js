@@ -28,9 +28,9 @@ function test() {
 	// PREDICTION
 // OUTPUT: error
 
-// var needle;              // 'needle' is a declared, it's global and gets hoisted
-// needle = "haystack";     // assign the value of 'haystack' to the global 'needle'
-// test();                  // 'test()' is called and will throw a typeError saying that test isnt a function
+// var needle;                  // 'needle' is a declared, it's global and gets hoisted
+// needle = "haystack";         // assign the value of 'haystack' to the global 'needle'
+// test();                      // 'test()' is called and will throw a typeError saying that test isnt a function
 
 	// RESULT
 // OUTPUT: magnet
@@ -103,3 +103,25 @@ function eat() {
 	// RESULT
 // OUTPUT: chicken
 //         half-chicken
+
+// 5
+
+// GIVEN
+// mean();
+// console.log(food);
+// var mean = function () {
+// 	food = "chicken";
+// 	console.log(food);
+// 	var food = "fish";
+// 	console.log(food);
+// };
+// console.log(food);
+
+// AFTER HOISTING BY THE INTERPRETER
+
+	// PREDICTION
+// OUTPUT: error
+
+
+	// RESULT
+// OUTPUT:
