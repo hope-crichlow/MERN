@@ -107,15 +107,15 @@ function eat() {
 // 5
 
 // GIVEN
-// mean();
-// console.log(food);
-// var mean = function () {
-// 	food = "chicken";
-// 	console.log(food);
-// 	var food = "fish";
-// 	console.log(food);
-// };
-// console.log(food);
+mean();
+console.log(food);
+var mean = function () {
+	food = "chicken";
+	console.log(food);
+	var food = "fish";
+	console.log(food);
+};
+console.log(food);
 
 // AFTER HOISTING BY THE INTERPRETER
 
@@ -123,5 +123,6 @@ function eat() {
 // OUTPUT: error
 
 // mean();                        // 'mean()' throws a reference error
+
 	// RESULT
-// OUTPUT:
+// OUTPUT: TypeError: mean is not a function
