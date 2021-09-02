@@ -122,6 +122,6 @@ function eat() {
 	// PREDICTION
 // OUTPUT: error
 
-
+// mean();                        // 'mean()' throws a reference error
 	// RESULT
 // OUTPUT:
