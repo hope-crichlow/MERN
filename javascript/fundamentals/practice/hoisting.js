@@ -90,15 +90,16 @@ function eat() {
 // OUTPUT: chicken
 //         half-chicken
 
-// var food;
-// food = "chicken";
-// console.log(food);
-// eat();
-// function eat() {
-// 	food = "half-chicken";
-// 	console.log(food);
-// 	var food = "gone";
+// var food;                    // 'food' is declared, global variable
+// function eat() {             // 'eat()' gets hoisted to the top
+// 	food = "half-chicken";  // assign the value of 'half-chicken' to the function scoped 'food'
+// 	console.log(food);      // log 'food' as 'half-chicken'
+// 	var food = "gone";      // assign the value of 'gone' to a function scoped 'food'
 // }
+// food = "chicken";            // assign the value of 'chicken' to the globally scoped 'food'
+// console.log(food);           // console.log runs and outputs 'chicken'
+// eat();                       // 'eat()' is called, the console.log runs and outputs 'half-chicken'
 
 	// RESULT
-// OUTPUT:
+// OUTPUT: chicken
+//         half-chicken
