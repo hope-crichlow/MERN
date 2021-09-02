@@ -92,9 +92,10 @@ function eat() {
 
 // var food;                    // 'food' is declared, global variable
 // function eat() {             // 'eat()' gets hoisted to the top
+// 	var food;                   // 'food' is declared within 'eat()' and gets hoisted to the top of its scope
 // 	food = "half-chicken";  // assign the value of 'half-chicken' to the function scoped 'food'
 // 	console.log(food);      // log 'food' as 'half-chicken'
-// 	var food = "gone";      // assign the value of 'gone' to a function scoped 'food'
+// 	food = "gone";          // assign the value of 'gone' to a function scoped 'food'
 // }
 // food = "chicken";            // assign the value of 'chicken' to the globally scoped 'food'
 // console.log(food);           // console.log runs and outputs 'chicken'
@@ -107,22 +108,61 @@ function eat() {
 // 5
 
 // GIVEN
-mean();
-console.log(food);
-var mean = function () {
-	food = "chicken";
-	console.log(food);
-	var food = "fish";
-	console.log(food);
-};
-console.log(food);
+// mean();
+// console.log(food);
+// var mean = function () {
+// 	food = "chicken";
+// 	console.log(food);
+// 	var food = "fish";
+// 	console.log(food);
+// };
+// console.log(food);
 
 // AFTER HOISTING BY THE INTERPRETER
 
 	// PREDICTION
 // OUTPUT: error
 
+// var mean;                      // 'mean' is declared, global variable
 // mean();                        // 'mean()' throws a reference error
 
 	// RESULT
 // OUTPUT: TypeError: mean is not a function
+
+// 6
+
+// GIVEN
+// console.log(genre);
+// var genre = "disco";
+// rewind();
+// function rewind() {
+// 	genre = "rock";
+// 	console.log(genre);
+// 	var genre = "r&b";
+// 	console.log(genre);
+// }
+// console.log(genre);
+
+// AFTER HOISTING BY THE INTERPRETER
+
+	// PREDICTION
+// OUTPUT: undefined 
+//         rock 
+//         r&b 
+//         disco
+
+// var genre;                       // 'genre' declared, global variable
+// function rewind() {              // 'rewind()' gets hoisted to the top
+// 	var genre;                  // 'genre' declared, function scoped variable-- gets hoisted to the top of its scope
+// 	genre = "rock";             // assing the value of 'rock' to function scoped 'genre'
+// 	console.log(genre);         // log 'genre' as 'rock'
+// 	genre = "r&b";              // assign the value of 'r&b' to function scoped 'genre'
+// 	console.log(genre);         // log 'genre' as 'r&b'
+// }
+// console.log(genre);              // console.log runs, output: 'undefined'
+// genre = "disco";                 // assign the value of 'disco' to global variable 'genre'
+// rewind();                        // 'rewind()' is called, the 2 function scoped logs run, output: rock '\n' r&b
+// console.log(genre);              // log global 'genre', output: 'disco'
+
+	// RESULT
+// OUTPUT:
