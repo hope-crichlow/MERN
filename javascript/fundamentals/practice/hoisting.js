@@ -1,13 +1,12 @@
 // 1
 // GIVEN
-
-// console.log(example);
-// let example = "I'm the example!";
+// console.log(hello);
+// var hello = "world";
 
 // AFTER HOISTING BY THE INTERPRETER
-
     // PREDICTION
-// console.log(example); // Error. Can't access 'example' before initialization
-// let example = "I'm the example!";
-
+// var hello;
+// console.log(hello); // logs undefined
+// var hello = "world";
     // RESULT
+
