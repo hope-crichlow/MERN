@@ -43,9 +43,12 @@
 			document.getElementById("alert").onclick = () =>
 				alert(document.getElementById("popup-input").value);
 
-			document.getElementById("hover-this").onmouseover = function () {
+			// document.getElementById("hover-this").onmouseover = function () {
+			// 	setBackgroundColorById("body", "red");
+			// };
+			document.getElementById("hover-this").onmouseover = () =>
 				setBackgroundColorById("body", "red");
-			};
+
 			document.getElementById("hover-this").onmouseout = function () {
 				setBackgroundColorById("body", "white");
 			};
