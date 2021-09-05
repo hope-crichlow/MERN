@@ -37,9 +37,12 @@
 			document.getElementById("button").onclick = () =>
 				setBackgroundColorById("paragraph", "blue");
 
-			document.getElementById("alert").onclick = function () {
+			// document.getElementById("alert").onclick = function () {
+			// 	alert(document.getElementById("popup-input").value);
+			// };
+			document.getElementById("alert").onclick = () =>
 				alert(document.getElementById("popup-input").value);
-			};
+
 			document.getElementById("hover-this").onmouseover = function () {
 				setBackgroundColorById("body", "red");
 			};
