@@ -31,9 +31,12 @@
 			whatever is in this input: <input type="text" />.
 		</p>
 		<script>
-			document.getElementById("button").onclick = function () {
+			// document.getElementById("button").onclick = function () {
+			// 	setBackgroundColorById("paragraph", "blue");
+			// };
+			document.getElementById("button").onclick = () =>
 				setBackgroundColorById("paragraph", "blue");
-			};
+
 			document.getElementById("alert").onclick = function () {
 				alert(document.getElementById("popup-input").value);
 			};
