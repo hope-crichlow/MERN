@@ -34,10 +34,18 @@ class Sensei extends Ninja {
 		this.strength = 10;
 		this.wisdom = 10;
 	}
+
+	speakWisdom() {
+		super.drinkSake();
+		console.log(
+			"What one programmer can do in one month, two programmers can do in two months."
+		);
+	}
 }
 // example output
 const superSensei = new Sensei("Master Splinter");
-// superSensei.speakWisdom();
+superSensei.showStats();
+superSensei.speakWisdom();
 // -> "What one programmer can do in one month, two programmers can do in two months."
 superSensei.showStats();
 // -> "Name: Master Splinter, Health: 210, Speed: 10, Strength: 10"copy
