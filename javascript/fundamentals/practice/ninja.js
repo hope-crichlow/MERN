@@ -1,4 +1,3 @@
-// Create a Ninja class
 class Ninja {
 	constructor(name) {
 		this.name = name;
