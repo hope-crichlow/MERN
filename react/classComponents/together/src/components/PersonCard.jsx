@@ -3,17 +3,26 @@ import React, { Component } from "react";
 
 // CREATE THE COMPONENT
 class PersonCard extends Component {
-	constructor(props) {
+	
+    constructor(props) {
 		super(props);
         const { firstName, lastName, age, hairColor } = this.props;
 		this.state = {
             firstName,
             lastName,
             age,
-            hairColor,
-			clicked: 0,
+            hairColor
 		};
-	}
+	};
+
+    clickHandler = () => {
+        let birthday = this.state.age;
+        this.setState({
+            "age": ++birthday,
+        });
+        console.log("you clicked me!");
+    };
+
 	render() {
 		
 		return (
@@ -23,7 +32,7 @@ class PersonCard extends Component {
 				</h3>
 				<p>Age: {this.state.age} </p>
 				<p>Hair Color: {this.state.hairColor}</p>
-				<button class="btn btn-primary">
+				<button className="btn btn-primary" onClick={this.clickHandler}>
 					Birthday Button for {this.state.firstName} {this.state.lastName}
 				</button>
 			</div>
