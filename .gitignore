@@ -44,3 +44,4 @@ packages/react-devtools-inline/dist
 packages/react-devtools-shell/dist
 packages/react-devtools-scheduling-profiler/dist
 javascript/fundamentals/practice/scope.js
+.DS_Store
