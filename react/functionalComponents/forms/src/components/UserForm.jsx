@@ -12,13 +12,14 @@ const UserForm = (props) => {
 		e.preventDefault();
 		const newUser = { firstName, lastName, email, password };
 		console.log("Welcome", newUser);
+		setHasBeenSubmitted(true);
 	};
 
 	return (
 		<div className="container px-4 ">
-			<div className="row align-items-center justify-content-center gx-5 ">
-				<div className="col flex">
-					<form className="mb3" onSubmit={createUser}>
+			<div className="row align-items-center justify-content-between gx-5 ">
+				<div className="col flex gap-2">
+					<form className="mb-3" onSubmit={createUser}>
 						{hasBeenSubmitted ? (
 							<h3>Thank you for submitting the form!</h3>
 						) : (
@@ -68,61 +69,54 @@ const UserForm = (props) => {
 					</form>
 				</div>
 
-				<div className="col d-flex-column ">
+				<div className="col d-flex-column gap-2">
 					<h3>Your Form Data</h3>
 					<form className="mb-3" action="">
 						<div className="row mb-3 ">
-							<label for="inputFirstName" className="col-sm-3 col-form-label">
-								First Name:
-							</label>
+							<label className="col-sm-3 col-form-label">First Name:</label>
 							<div className="col-sm-6">
+								{/* <span>{firstName}</span> */}
 								<input
 									type="text"
 									className="form-control-plaintext"
 									id="inputfirstName"
-									readonly
+									readOnly
 									value={firstName}
 								/>
 							</div>
 						</div>
 						<div className="row mb-3">
-							<label for="inputLastName" class="col-sm-3 col-form-label">
-								Last Name:
-							</label>
+							<label className="col-sm-3 col-form-label">Last Name:</label>
 							<div className="col-sm-6">
 								<input
 									type="text"
 									className="form-control-plaintext"
 									id="inputLastName"
-									readonly
+									readOnly
 									value={lastName}
 								/>
 							</div>
 						</div>
 						<div className="row mb-3">
-							<label for="inputEmail3" class="col-sm-3 col-form-label">
-								Email:
-							</label>
+							<label className="col-sm-3 col-form-label">Email:</label>
 							<div className="col-sm-6">
 								<input
 									type="email"
 									className="form-control-plaintext"
 									id="inputEmail3"
-									readonly
+									readOnly
 									value={email}
 								/>
 							</div>
 						</div>
 						<div className="row mb-3">
-							<label for="inputPassword3" className="col-sm-3 col-form-label">
-								Password:
-							</label>
+							<label className="col-sm-3 col-form-label">Password:</label>
 							<div className="col-sm-6">
 								<input
 									type="text"
 									className="form-control-plaintext"
 									id="inputPassword3"
-									readonly
+									readOnly
 									value={password}
 								/>
 							</div>
