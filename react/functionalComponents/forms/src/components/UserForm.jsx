@@ -12,33 +12,36 @@ const UserForm = (props) => {
 	};
 
 	return (
-		<form className="mb3" onSubmit={createUser}>
-			<div>
-				<label className="form-label">Username: </label>
-				<input
-					className="form-control"
-					type="text"
-					onChange={(e) => setUsername(e.target.value)}
-				/>
-			</div>
-			<div>
-				<label className="form-label">Email Address: </label>
-				<input
-					className="form-control"
-					type="text"
-					onChange={(e) => setEmail(e.target.value)}
-				/>
-			</div>
-			<div>
-				<label className="form-label">Password: </label>
-				<input
-					className="form-control"
-					type="text"
-					onChange={(e) => setPassword(e.target.value)}
-				/>
-			</div>
-			<input className="btn" type="submit" value="Create User" />
-		</form>
+		<div className="container-sm">
+			<h3>New User Form</h3>
+			<form className="mb3" onSubmit={createUser}>
+				<div>
+					<label className="form-label">Username: </label>
+					<input
+						className="form-control"
+						type="text"
+						onChange={(e) => setUsername(e.target.value)}
+					/>
+				</div>
+				<div>
+					<label className="form-label">Email Address: </label>
+					<input
+						className="form-control"
+						type="text"
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+				</div>
+				<div>
+					<label className="form-label">Password: </label>
+					<input
+						className="form-control"
+						type="text"
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+				</div>
+				<input className="btn" type="submit" value="Create User" />
+			</form>
+		</div>
 	);
 };
 
