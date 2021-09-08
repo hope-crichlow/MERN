@@ -14,7 +14,7 @@ const UserForm = (props) => {
 		email: "",
 		password: "",
 		confirmPassword: "",
-		hasBeenSubmitted: false,
+		// hasBeenSubmitted: false,
 	});
 
 	const changeHandler = (e) => {
@@ -45,21 +45,27 @@ const UserForm = (props) => {
 
 		//////////////// VALIDATIONS \\\\\\\\\\\\\\\\\\\
 		// FIRST NAME MUST BE AT LEAST 2 CHARACTERS
-		if (formState.firstName.length > 2) {
+		if (formState.firstName.length < 2) {
+			firstName.push("Name must be more than 2 characters");
 		}
 		// LAST NAME MUST BE AT LEAST 2 CHARACTERS
-		if (formState.lastName.length > 2) {
+		if (formState.lastName.length < 2) {
+			lastName = true;
 		}
 		// EMAIL MUST BE VALID FORMAT
 		if (
 			!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formState.email)
 		) {
+			email = true;
 		}
+
 		// PASSWORD LENGTH MUST BE MORE THAN 5 CHARACTERS
-		if (formState.password.length > 5) {
+		if (formState.password.length < 5) {
+			password = true;
 		}
 		// PASSWORD CONFIRMATION MUST MATCH PASSWORD
 		if (formState.password !== formState.confirmPassword) {
+			confirmPassword = true;
 		}
 		setValidState({
 			firstName,
@@ -95,6 +101,9 @@ const UserForm = (props) => {
 						)} */}
 						<div>
 							<label className="form-label">First Name: </label>
+							{validState.firstName.map((message) => (
+								<p style={{ color: "red" }}>{message}</p>
+							))}
 							<input
 								className="form-control"
 								type="text"
@@ -105,6 +114,11 @@ const UserForm = (props) => {
 						</div>
 						<div>
 							<label className="form-label">Last Name: </label>
+							{validState.lastName ? (
+								<p style={{ color: "red" }}>
+									Last name must be atleast 2 characters
+								</p>
+							) : null}
 							<input
 								className="form-control"
 								type="text"
@@ -115,6 +129,9 @@ const UserForm = (props) => {
 						</div>
 						<div>
 							<label className="form-label">Email Address: </label>
+							{validState.email ? (
+								<p style={{ color: "red" }}>Email must be valid</p>
+							) : null}
 							<input
 								className="form-control"
 								type="text"
@@ -125,6 +142,9 @@ const UserForm = (props) => {
 						</div>
 						<div>
 							<label className="form-label">Password: </label>
+							{validState.password ? (
+								<p style={{ color: "red" }}>Password must be atleast 5 chars</p>
+							) : null}
 							<input
 								className="form-control"
 								type="password"
@@ -135,6 +155,11 @@ const UserForm = (props) => {
 						</div>
 						<div>
 							<label className="form-label">Confirm Password: </label>
+							{validState.confirmPassword ? (
+								<p style={{ color: "red" }}>
+									Password and Confirm Password must match
+								</p>
+							) : null}
 							<input
 								className="form-control"
 								type="password"
@@ -196,6 +221,18 @@ const UserForm = (props) => {
 									id="inputPassword3"
 									readOnly
 									value={formState.password}
+								/>
+							</div>
+						</div>
+						<div className="row mb-3">
+							<label className="col-sm-3 col-form-label">Confirm Password:</label>
+							<div className="col-sm-6">
+								<input
+									type="text"
+									className="form-control-plaintext"
+									id="inputConfirmPassword3"
+									readOnly
+									value={formState.confirmPassword}
 								/>
 							</div>
 						</div>
