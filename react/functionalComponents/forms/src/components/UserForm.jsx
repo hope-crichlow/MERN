@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
 const UserForm = (props) => {
-	// const [firstName, setFirstName] = useState("");
-	// const [lastName, setLastName] = useState("");
-	// const [email, setEmail] = useState("");
-	// const [password, setPassword] = useState("");
-	// const [confirmPassword, setConfirmPassword] = useState("");
-	// const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
 	const [formState, setFormState] = useState({
 		firstName: "",
@@ -14,7 +8,7 @@ const UserForm = (props) => {
 		email: "",
 		password: "",
 		confirmPassword: "",
-		// hasBeenSubmitted: false,
+		hasBeenSubmitted: false
 	});
 
 	const changeHandler = (e) => {
@@ -77,16 +71,27 @@ const UserForm = (props) => {
 		//////////////// VALIDATIONS \\\\\\\\\\\\\\\\\\\
 
 		// CREATE NEW USER
-		// const newUser = { formState.firstName, lastName, email, password };
-		// console.log("Welcome", newUser);
-		// AFTER FORM IS SUBMITTED, CHANGE WELCOME MESSAGE TO THANK YOU
-		// setHasBeenSubmitted(true);
+		const newUser = {
+			firstName: formState.firstName,
+			lastName: formState.lastName,
+			email: formState.email,
+			password: formState.password,
+		};
+
+		console.log("Welcome", newUser);
+
 		// CLEAR STATE VALUES
-		// setFirstName("");
-		// setLastName("");
-		// setEmail("");
-		// setPassword("");
-		// setConfirmPassword("");
+		setFormState({
+			...formState,
+			firstName: "",
+			lastName: "",
+			email: "",
+			password: "",
+			confirmPassword: "",
+			// AFTER FORM IS SUBMITTED, CHANGE WELCOME MESSAGE TO THANK YOU
+			hasBeenSubmitted: true,
+		});
+
 	};
 
 	return (
@@ -94,11 +99,11 @@ const UserForm = (props) => {
 			<div className="row align-items-center justify-content-between gx-5 ">
 				<div className="col flex gap-2">
 					<form className="mb-3" onSubmit={createUser}>
-						{/* {hasBeenSubmitted ? (
+						{formState.hasBeenSubmitted ? (
 							<h3>Thank you for submitting the form!</h3>
 						) : (
 							<h3>Welcome, please submit the form.</h3>
-						)} */}
+						)}
 						<div>
 							<label className="form-label">First Name: </label>
 							{validState.firstName.map((message) => (
@@ -143,7 +148,7 @@ const UserForm = (props) => {
 						<div>
 							<label className="form-label">Password: </label>
 							{validState.password ? (
-								<p style={{ color: "red" }}>Password must be atleast 5 chars</p>
+								<p style={{ color: "red" }}>Password must be atleast 5 characters</p>
 							) : null}
 							<input
 								className="form-control"
@@ -178,7 +183,7 @@ const UserForm = (props) => {
 						<div className="row mb-3 ">
 							<label className="col-sm-3 col-form-label">First Name:</label>
 							<div className="col-sm-6">
-								{/* <span>{firstName}</span> */}
+						
 								<input
 									type="text"
 									className="form-control-plaintext"
@@ -225,7 +230,9 @@ const UserForm = (props) => {
 							</div>
 						</div>
 						<div className="row mb-3">
-							<label className="col-sm-3 col-form-label">Confirm Password:</label>
+							<label className="col-sm-3 col-form-label">
+								Confirm Password:
+							</label>
 							<div className="col-sm-6">
 								<input
 									type="text"
