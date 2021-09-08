@@ -1,49 +1,86 @@
 import React, { useState } from "react";
 
 const UserForm = (props) => {
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
-	const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+	// const [firstName, setFirstName] = useState("");
+	// const [lastName, setLastName] = useState("");
+	// const [email, setEmail] = useState("");
+	// const [password, setPassword] = useState("");
+	// const [confirmPassword, setConfirmPassword] = useState("");
+	// const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+
+	const [formState, setFormState] = useState({
+		firstName: "",
+		lastName: "",
+		email: "",
+		password: "",
+		confirmPassword: "",
+		hasBeenSubmitted: false,
+	});
+
+	const changeHandler = (e) => {
+		const { name, value } = e.target;
+		setFormState({
+			...formState,
+			[name]: value,
+		});
+	};
+
+	const [validState, setValidState] = useState({
+		firstName: [],
+		lastName: false,
+		email: false,
+		password: false,
+		confirmPassword: false,
+	});
 
 	const createUser = (e) => {
+		let firstName = [];
+		let lastName = false;
+		let email = false;
+		let password = false;
+		let confirmPassword = false;
+
 		// STOP THE FORM FROM MAKING A REQUEST
 		e.preventDefault();
 
 		//////////////// VALIDATIONS \\\\\\\\\\\\\\\\\\\
 		// FIRST NAME MUST BE AT LEAST 2 CHARACTERS
-		if (firstName.length > 2) {
+		if (formState.firstName.length > 2) {
 		}
 		// LAST NAME MUST BE AT LEAST 2 CHARACTERS
-		if (lastName.length > 2) {
+		if (formState.lastName.length > 2) {
 		}
 		// EMAIL MUST BE VALID FORMAT
-		if(! (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(email)){
-
+		if (
+			!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formState.email)
+		) {
 		}
 		// PASSWORD LENGTH MUST BE MORE THAN 5 CHARACTERS
-		if (password.length > 5){
-
+		if (formState.password.length > 5) {
 		}
 		// PASSWORD CONFIRMATION MUST MATCH PASSWORD
-		if (password !== confirmPassword){
-
+		if (formState.password !== formState.confirmPassword) {
 		}
+		setValidState({
+			firstName,
+			lastName,
+			email,
+			password,
+			confirmPassword,
+		});
 		//////////////// VALIDATIONS \\\\\\\\\\\\\\\\\\\
 
 		// CREATE NEW USER
-		const newUser = { firstName, lastName, email, password };
-		console.log("Welcome", newUser);
+		// const newUser = { formState.firstName, lastName, email, password };
+		// console.log("Welcome", newUser);
 		// AFTER FORM IS SUBMITTED, CHANGE WELCOME MESSAGE TO THANK YOU
-		setHasBeenSubmitted(true);
+		// setHasBeenSubmitted(true);
 		// CLEAR STATE VALUES
-		setFirstName("");
-		setLastName("");
-		setEmail("");
-		setPassword("");
-		setConfirmPassword("");
+		// setFirstName("");
+		// setLastName("");
+		// setEmail("");
+		// setPassword("");
+		// setConfirmPassword("");
 	};
 
 	return (
@@ -51,19 +88,19 @@ const UserForm = (props) => {
 			<div className="row align-items-center justify-content-between gx-5 ">
 				<div className="col flex gap-2">
 					<form className="mb-3" onSubmit={createUser}>
-						{hasBeenSubmitted ? (
+						{/* {hasBeenSubmitted ? (
 							<h3>Thank you for submitting the form!</h3>
 						) : (
 							<h3>Welcome, please submit the form.</h3>
-						)}
+						)} */}
 						<div>
 							<label className="form-label">First Name: </label>
 							<input
 								className="form-control"
 								type="text"
-								onChange={(e) => setFirstName(e.target.value)}
+								onChange={changeHandler}
 								name="firstName"
-								value={firstName}
+								value={formState.firstName}
 							/>
 						</div>
 						<div>
@@ -71,9 +108,9 @@ const UserForm = (props) => {
 							<input
 								className="form-control"
 								type="text"
-								onChange={(e) => setLastName(e.target.value)}
+								onChange={changeHandler}
 								name="lastName"
-								value={lastName}
+								value={formState.lastName}
 							/>
 						</div>
 						<div>
@@ -81,9 +118,9 @@ const UserForm = (props) => {
 							<input
 								className="form-control"
 								type="text"
-								onChange={(e) => setEmail(e.target.value)}
+								onChange={changeHandler}
 								name="email"
-								value={email}
+								value={formState.email}
 							/>
 						</div>
 						<div>
@@ -91,9 +128,9 @@ const UserForm = (props) => {
 							<input
 								className="form-control"
 								type="password"
-								onChange={(e) => setPassword(e.target.value)}
+								onChange={changeHandler}
 								name="password"
-								value={password}
+								value={formState.password}
 							/>
 						</div>
 						<div>
@@ -101,9 +138,9 @@ const UserForm = (props) => {
 							<input
 								className="form-control"
 								type="password"
-								onChange={(e) => setConfirmPassword(e.target.value)}
+								onChange={changeHandler}
 								name="confirmPassword"
-								value={confirmPassword}
+								value={formState.confirmPassword}
 							/>
 						</div>
 						<input className="btn" type="submit" value="Create User" />
@@ -122,7 +159,7 @@ const UserForm = (props) => {
 									className="form-control-plaintext"
 									id="inputfirstName"
 									readOnly
-									value={firstName}
+									value={formState.firstName}
 								/>
 							</div>
 						</div>
@@ -134,7 +171,7 @@ const UserForm = (props) => {
 									className="form-control-plaintext"
 									id="inputLastName"
 									readOnly
-									value={lastName}
+									value={formState.lastName}
 								/>
 							</div>
 						</div>
@@ -146,7 +183,7 @@ const UserForm = (props) => {
 									className="form-control-plaintext"
 									id="inputEmail3"
 									readOnly
-									value={email}
+									value={formState.email}
 								/>
 							</div>
 						</div>
@@ -158,7 +195,7 @@ const UserForm = (props) => {
 									className="form-control-plaintext"
 									id="inputPassword3"
 									readOnly
-									value={password}
+									value={formState.password}
 								/>
 							</div>
 						</div>
