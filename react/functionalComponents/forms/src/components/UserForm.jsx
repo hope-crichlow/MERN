@@ -23,6 +23,7 @@ const UserForm = (props) => {
 						className="form-control"
 						type="text"
 						onChange={(e) => setFirstName(e.target.value)}
+						name="firstName"
 						value={firstName}
 					/>
 				</div>
@@ -32,6 +33,8 @@ const UserForm = (props) => {
 						className="form-control"
 						type="text"
 						onChange={(e) => setLastName(e.target.value)}
+						name="lastName"
+						value={lastName}
 					/>
 				</div>
 				<div>
@@ -40,14 +43,18 @@ const UserForm = (props) => {
 						className="form-control"
 						type="text"
 						onChange={(e) => setEmail(e.target.value)}
+						name="email"
+						value={email}
 					/>
 				</div>
 				<div>
 					<label className="form-label">Password: </label>
 					<input
 						className="form-control"
-						type="text"
+						type="password"
 						onChange={(e) => setPassword(e.target.value)}
+						name="password"
+						value={password}
 					/>
 				</div>
 				<input className="btn" type="submit" value="Create User" />
@@ -62,9 +69,24 @@ const UserForm = (props) => {
 					<div class="col-sm-10">
 						<input
 							type="text"
-							class="form-control"
+							readonly
+							class="form-control-plaintext"
 							id="inputfirstName"
 							value={firstName}
+						/>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label for="inputLastName" class="col-sm-2 col-form-label">
+						Last Name
+					</label>
+					<div class="col-sm-10">
+						<input
+							type="text"
+							readonly
+							class="form-control-plaintext"
+							id="inputLastName"
+							value={lastName}
 						/>
 					</div>
 				</div>
@@ -73,7 +95,13 @@ const UserForm = (props) => {
 						Email
 					</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control" id="inputEmail3" />
+						<input
+							type="email"
+							readonly
+							class="form-control-plaintext"
+							id="inputEmail3"
+							value={email}
+						/>
 					</div>
 				</div>
 				<div class="row mb-3">
@@ -81,7 +109,13 @@ const UserForm = (props) => {
 						Password
 					</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" id="inputPassword3" />
+						<input
+							type="text"
+							readonly
+							class="form-control-plaintext"
+							id="inputPassword3"
+							value={password}
+						/>
 					</div>
 				</div>
 			</form>
