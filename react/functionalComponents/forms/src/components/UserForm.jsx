@@ -13,6 +13,11 @@ const UserForm = (props) => {
 		const newUser = { firstName, lastName, email, password };
 		console.log("Welcome", newUser);
 		setHasBeenSubmitted(true);
+		// CLEAR STATE VALUES
+		setFirstName("");
+		setLastName("");
+		setEmail("");
+		setPassword("");
 	};
 
 	return (
