@@ -5,19 +5,45 @@ const UserForm = (props) => {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
 	const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
 	const createUser = (e) => {
 		// STOP THE FORM FROM MAKING A REQUEST
 		e.preventDefault();
+
+		//////////////// VALIDATIONS \\\\\\\\\\\\\\\\\\\
+		// FIRST NAME MUST BE AT LEAST 2 CHARACTERS
+		if (firstName.length > 2) {
+		}
+		// LAST NAME MUST BE AT LEAST 2 CHARACTERS
+		if (lastName.length > 2) {
+		}
+		// EMAIL MUST BE VALID FORMAT
+		if(! (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(email)){
+
+		}
+		// PASSWORD LENGTH MUST BE MORE THAN 5 CHARACTERS
+		if (password.length > 5){
+
+		}
+		// PASSWORD CONFIRMATION MUST MATCH PASSWORD
+		if (password !== confirmPassword){
+
+		}
+		//////////////// VALIDATIONS \\\\\\\\\\\\\\\\\\\
+
+		// CREATE NEW USER
 		const newUser = { firstName, lastName, email, password };
 		console.log("Welcome", newUser);
+		// AFTER FORM IS SUBMITTED, CHANGE WELCOME MESSAGE TO THANK YOU
 		setHasBeenSubmitted(true);
 		// CLEAR STATE VALUES
 		setFirstName("");
 		setLastName("");
 		setEmail("");
 		setPassword("");
+		setConfirmPassword("");
 	};
 
 	return (
@@ -68,6 +94,16 @@ const UserForm = (props) => {
 								onChange={(e) => setPassword(e.target.value)}
 								name="password"
 								value={password}
+							/>
+						</div>
+						<div>
+							<label className="form-label">Confirm Password: </label>
+							<input
+								className="form-control"
+								type="password"
+								onChange={(e) => setConfirmPassword(e.target.value)}
+								name="confirmPassword"
+								value={confirmPassword}
 							/>
 						</div>
 						<input className="btn" type="submit" value="Create User" />
