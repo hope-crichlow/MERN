@@ -12,12 +12,18 @@ const Main = () => {
 			.then((response) => setState(response.data.results))
 			// HANDLE UNSUCCESSFUL RESPONSE
 			.catch((error) => console.log(error));
+            
 	};
+
+    const listStyle = {
+        'textAlign': "center",
+        'list-style': "inside",
+    };
 	return (
 		<div>
-			<button onClick={axiosCall}>Fetch Pokemon</button>
+			<button className="btn" onClick={axiosCall}>Fetch Pokemon</button>
 			{state ? (
-				<ul>
+				<ul style={listStyle}>
 					{state.map((pokemon, i) => (
 						<li key={i}>{pokemon.name}</li>
 					))}
