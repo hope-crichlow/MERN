@@ -19,7 +19,7 @@ const Main = () => {
 			{state ? (
 				<ul>
 					{state.map((pokemon, i) => (
-						<li>{pokemon.name}</li>
+						<li key={i}>{pokemon.name}</li>
 					))}
 				</ul>
 			) : (
