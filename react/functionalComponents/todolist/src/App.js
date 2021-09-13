@@ -9,7 +9,7 @@ function App() {
 
   // A FUNCTION THAT ADDS INPUT STRING TO CURRENT ARRAY OF TASKS
   const addTaskToArray = (task) => {
-    setArrState([...arrState, task]);
+    setArrState([...arrState, {task: task, completed: false}]);
   }
 
   return (
@@ -17,7 +17,7 @@ function App() {
       <legend>App.js</legend>
 			<div className="App">
 				<Form addTaskToArray={addTaskToArray}/>
-				<ListDisplay />
+				<ListDisplay tasks={arrState} />
 			</div>
 		</fieldset>
 	);

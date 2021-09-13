@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const Form = (props) => {
 	const [inputState, setInputState] = useState("");
+    
 	const { addTaskToArray } = props;
 
 	const submitHandler = (e) => {
