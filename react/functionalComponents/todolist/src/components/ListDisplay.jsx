@@ -6,16 +6,14 @@ const ListDisplay = (props) => {
     console.log(tasks);
 
     const toDoList = tasks.map((task, i) => {
-        return (
-            <li key={i} id={i} className="inline-items"></li>
-        );
+        return <li key={i} id={i} className="list-group-item">{task.task}</li>;
     });
 
 	return (
 		<div>
 			<fieldset>
 				<legend>ListDisplay.jsx</legend>
-                <ul>{toDoList}</ul>
+                <ul className="list-group list-group-flush">{toDoList}</ul>
 			</fieldset>
 		</div>
 	);

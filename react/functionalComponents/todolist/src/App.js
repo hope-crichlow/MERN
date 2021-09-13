@@ -14,9 +14,9 @@ function App() {
 
   return (
 		<fieldset>
-      <legend>App.js</legend>
-			<div className="App">
-				<Form addTaskToArray={addTaskToArray}/>
+			<legend>App.js</legend>
+			<div className="container px-4">
+				<Form addTaskToArray={addTaskToArray} />
 				<ListDisplay tasks={arrState} />
 			</div>
 		</fieldset>
