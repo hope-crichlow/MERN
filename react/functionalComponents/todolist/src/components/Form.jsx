@@ -37,6 +37,8 @@ const Form = () => {
 		setToDoState(updatedTodo);
 	};
 
+
+
 	const handleTaskDelete = (selectedTaskIndex) => {
 		const filteredToDo = toDoState.filter((_task, i) => {
 			return i !== selectedTaskIndex;
@@ -76,9 +78,8 @@ const Form = () => {
 									className="list-group-item d-flex justify-content-between align-items-center "
 								>
 									{/* <p
-										className={
-											task.completed ? "line-through form-check" : "form-check"
-										}
+										className={task.completed ? "completed form-check : form-check"
+}
 									> */}
 									<input
 										className="form-check-input"
@@ -90,7 +91,17 @@ const Form = () => {
 										value={task.id}
 									/>
 
-									<label className="form-check-label">{task.task}</label>
+									<label className="form-check-label">
+										<span
+											className={
+												task.completed
+													? "completed"
+													: "none"
+											}
+										>
+											{task.task}
+										</span>
+									</label>
 
 									<button
 										className="btn"
