@@ -1,23 +1,27 @@
-import './App.css';
-import Form from './components/Form';
-import ListDisplay from './components/ListDisplay';
-import {useState} from "react";
+import "./App.css";
+import Form from "./components/Form";
+import ListDisplay from "./components/ListDisplay";
+import { useState } from "react";
+// import ToDo from "./components/ToDo";
 
 function App() {
-  
-  const [arrState, setArrState] = useState([]);
+	const [toDoState, setToDoState] = useState([]);
+	// A FUNCTION THAT ADDS INPUT STRING TO CURRENT ARRAY OF TASKS
+	// const addTaskToArray = (task) => {
+	// 	setToDoState([
+	// 		...toDoState,
+	// 		{ task: task, completed: false, id: toDoState.length },
+	// 	]);
+	// };
 
-  // A FUNCTION THAT ADDS INPUT STRING TO CURRENT ARRAY OF TASKS
-  const addTaskToArray = (task) => {
-    setArrState([...arrState, {task: task, completed: false}]);
-  }
-
-  return (
+	return (
 		<fieldset>
 			<legend>App.js</legend>
 			<div className="container px-4">
-				<Form addTaskToArray={addTaskToArray} />
-				<ListDisplay tasks={arrState} />
+				{/* <Form addTaskToArray={addTaskToArray} /> */}
+				<Form />
+				{/* <ToDo /> */}
+				<ListDisplay tasks={toDoState} />
 			</div>
 		</fieldset>
 	);
