@@ -3,11 +3,16 @@ import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 
 const People = () => {
-        const history = useHistory();
+	const history = useHistory();
 
-        const [person, setPerson] = useState({});
-        const { person_id } = useParams();
-	return <div></div>;
+	const [person, setPerson] = useState({});
+	const { person_id } = useParams();
+	return (
+		<div>
+			<fieldset>
+				<legend>People.jsx</legend>
+			</fieldset>
+		</div>
+	);
 };
-
 export default People;
