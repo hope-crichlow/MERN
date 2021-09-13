@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 
 const Form = () => {
-	// const { addTaskToArray } = props;
+
 
 	const [newTask, setNewTask] = useState("");
 	const [toDoState, setToDoState] = useState([]);
 
-	// A FUNCTION THAT ADDS INPUT STRING TO CURRENT ARRAY OF TASKS
-	// const addTaskToArray = (newTask) => {
-	// 	setToDoState([...toDoState, { task: newTask, completed: false }]);
-	// };
 
 	const submitHandler = (e) => {
 		e.preventDefault();
@@ -50,7 +46,7 @@ const Form = () => {
 	return (
 		<div className="container px-4">
 			<fieldset>
-				<legend>Form.jsx</legend>
+				<legend>ToDo List</legend>
 				<form
 					className="form-control d-flex gap-5 justify-content-center "
 					onSubmit={submitHandler}
@@ -77,10 +73,7 @@ const Form = () => {
 									id={i}
 									className="list-group-item d-flex justify-content-between align-items-center "
 								>
-									{/* <p
-										className={task.completed ? "completed form-check : form-check"
-}
-									> */}
+						
 									<input
 										className="form-check-input"
 										type="checkbox"
@@ -112,7 +105,7 @@ const Form = () => {
 										Delete
 									</button>
 
-									{/* </p> */}
+						
 								</li>
 							);
 						})}
