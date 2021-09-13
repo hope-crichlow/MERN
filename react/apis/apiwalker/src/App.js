@@ -13,10 +13,10 @@ function App() {
 			<BrowserRouter>
 				<Form />
 				<Switch>
-					<Route path="/planets/:id">
+					<Route path="/planets/:planet_id">
 						<Planets />
 					</Route>
-					<Route path="/people/:id">
+					<Route path="/people/:person_id">
 						<People />
 					</Route>
 					<Route path="/error">

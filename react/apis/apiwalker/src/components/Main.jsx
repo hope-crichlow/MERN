@@ -5,8 +5,7 @@ import axios from "axios";
 const Main = () => {
 	const [state, setState] = useState();
 
-	useEffect(
-		() => {
+	useEffect(() => {
 			axios
 				.get("https://swapi.dev/api/people/1/") // making a GET request to Star Wars API
 				.then((response) => setState(response.data)) // successful response

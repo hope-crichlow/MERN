@@ -13,6 +13,8 @@ const Form = () => {
 		// SEND THE USER TO /CATEGORY/ID
 		history.push(`/${category}/${id}`);
 	};
+
+	
 	return (
 		<div>
 			<form onSubmit={submitHandler}>

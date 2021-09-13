@@ -11,6 +11,7 @@ const People = () => {
 		<div>
 			<fieldset>
 				<legend>People.jsx</legend>
+				<h3>Person ID: {person_id}</h3>
 			</fieldset>
 		</div>
 	);
