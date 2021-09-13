@@ -14,21 +14,36 @@ const Form = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 
+		if (newTask.length === 0) {
+			return;
+		}
+
 		setToDoState([...toDoState, { task: newTask, completed: false }]);
 		console.log("111111", toDoState);
 
 		setNewTask("");
 	};
 
-    const handleTaskDelete = (selectedTaskIndex) => {
-        const filteredToDo = toDoState.filter((task, i) => {
-            return i != selectedTaskIndex;
-        });
+	const handleToggleComplete = (selectedTaskIndex) => {
+		const updatedTodo = toDoState.map((task, i) => {
+			if (selectedTaskIndex === i) {
+				task.completed = !task.completed;
+				// Avoids mutating the task directly
+				// const updatedTodo = { ...task, completed: !task.completed };
+				// return updatedTodo;
+			}
+			return task;
+		});
+		setToDoState(updatedTodo);
+	};
 
-        setToDoState(filteredToDo);
-    };
+	const handleTaskDelete = (selectedTaskIndex) => {
+		const filteredToDo = toDoState.filter((_task, i) => {
+			return i !== selectedTaskIndex;
+		});
 
-
+		setToDoState(filteredToDo);
+	};
 
 	return (
 		<div className="container px-4">
@@ -38,7 +53,6 @@ const Form = () => {
 					className="form-control d-flex gap-5 justify-content-center "
 					onSubmit={submitHandler}
 				>
-					{/* <label className="form-label"></label> */}
 					<input
 						className="form-control"
 						type="text"
@@ -50,27 +64,49 @@ const Form = () => {
 						Add
 					</button>
 				</form>
-				<ul className="list-group list-group-flush">
-					{/* {toDoList} */}
-					{toDoState.map((task, i) => {
-                        return(
-                            <li key={i} id={i} className="list-group-item form-check">
-                                <p className={task.completed ? "line-through" : "none"}>
-                                    <label className="form-check-label">{task.task}</label>
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        defaultChecked={task.completed}
-                                        // onChange={changeStatus}
-                                        value={task.id}
-                                    />
-                                </p>
-                                <button onClick={(e) => {handleTaskDelete(i)}}>Delete</button>
-                            </li>
-                        );
-                    })
-                    }
-				</ul>
+
+				<div className="container">
+					<ul className="list-group list-group-flush">
+						{/* {toDoList} */}
+						{toDoState.map((task, i) => {
+							return (
+								<li
+									key={i}
+									id={i}
+									className="list-group-item d-flex justify-content-between align-items-center "
+								>
+									{/* <p
+										className={
+											task.completed ? "line-through form-check" : "form-check"
+										}
+									> */}
+									<input
+										className="form-check-input"
+										type="checkbox"
+										checked={task.completed}
+										onChange={(e) => {
+											handleToggleComplete(i);
+										}}
+										value={task.id}
+									/>
+
+									<label className="form-check-label">{task.task}</label>
+
+									<button
+										className="btn"
+										onClick={(e) => {
+											handleTaskDelete(i);
+										}}
+									>
+										Delete
+									</button>
+
+									{/* </p> */}
+								</li>
+							);
+						})}
+					</ul>
+				</div>
 			</fieldset>
 		</div>
 	);
