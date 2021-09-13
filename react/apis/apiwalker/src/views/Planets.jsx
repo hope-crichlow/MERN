@@ -11,7 +11,7 @@ const Planets = () => {
 	useEffect(
 		() => {
 			axios
-				.get("https://swapi.dev/api/planets/" + planet_id + "/") // making a GET request to Star Wars API
+				.get("https://swapi.dev/api/planets/" + planet_id) // making a GET request to Star Wars API
 				.then((response) => setPlanet(response.data)) // successful response
 				.catch((error) => history.push("/error")); // unsuccessful response
 		},
@@ -21,13 +21,13 @@ const Planets = () => {
 		<div>
 			<fieldset>
 				<legend>Planets.jsx</legend>
-				<h3>Planet ID: {planet_id}</h3>
+				<h2>{planet.name}</h2>
 				{planet ? (
 					<div>
-						<h1>Climate: {planet.climate}</h1>
-						<h2>Terrain: {planet.terrain}</h2>
-						<h2>Surface Water: {planet.surface_water}</h2>
-						<h2>Population: {planet.population}</h2>
+						<h3>Climate: {planet.climate}</h3>
+						<h3>Terrain: {planet.terrain}</h3>
+						<h3>Surface Water: {planet.surface_water}</h3>
+						<h3>Population: {planet.population}</h3>
 					</div>
 				) : (
 					<h1>LOADING.....</h1>

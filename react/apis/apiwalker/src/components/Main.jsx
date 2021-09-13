@@ -5,7 +5,8 @@ import axios from "axios";
 const Main = () => {
 	const [state, setState] = useState();
 
-	useEffect(() => {
+	useEffect(
+		() => {
 			axios
 				.get("https://swapi.dev/api/people/1/") // making a GET request to Star Wars API
 				.then((response) => setState(response.data)) // successful response
@@ -19,7 +20,7 @@ const Main = () => {
 				<legend>Main.jsx</legend>
 			</fieldset>
 
-			{state ? (
+			{/* {state ? (
 				<div>
 					<h1>Name: {state.name}</h1>
 					<h2>Birth Year: {state.birth_year}</h2>
@@ -27,7 +28,7 @@ const Main = () => {
 				</div>
 			) : (
 				<h1>LOADING.....</h1>
-			)}
+			)} */}
 		</div>
 	);
 };
