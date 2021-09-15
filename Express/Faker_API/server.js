@@ -7,6 +7,7 @@ const port = 8000; //  DEFINE PORT
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// CREATE USER CLASS
 class User {
 	constructor() {
 		this._id = faker.datatype.uuid();
@@ -17,8 +18,9 @@ class User {
 		this.password = faker.internet.password();
 	}
 }
-console.log(new User());
+// console.log(new User());
 
+// CREATE COMPANY CLASS
 class Company {
 	constructor() {
 		this._id = faker.datatype.uuid();
@@ -30,11 +32,24 @@ class Company {
 		this.country = faker.address.country();
 	}
 }
-console.log(new Company());
+// console.log(new Company());
 
 // DEFINE ROUTES FOR EXPRESS SERVER
-const UserRoutes = require("./routes/user.routes");
-UserRoutes(app);
+app.get("/api", (req, res) => {
+	res.send("Our express api SERVER is now sending this over to the browser");
+});
+
+// CREATE API ROUTE "/api/users/new", RETURN NEW USER 
+app.get("/api/users/new", (req, res) => {
+	let newUser = new User();
+	res.json(newUser);
+});
+
+// CREATE API ROUTE "/api/companies/new", RETURN NEW COMPANY
+app.get("/api/companies/new", (req, res) => {
+	let newCompany = new Company();
+	res.json(newCompany);
+});
 
 // RUN EXPRESS SERVER
 app.listen(port, () => console.log("EPRESS SERVER RUNNING ON PORT: " + port));
