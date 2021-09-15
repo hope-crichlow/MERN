@@ -39,7 +39,7 @@ app.get("/api", (req, res) => {
 	res.send("Our express api SERVER is now sending this over to the browser");
 });
 
-// CREATE API ROUTE "/api/users/new", RETURN NEW USER 
+// CREATE API ROUTE "/api/users/new", RETURN NEW USER
 app.get("/api/users/new", (req, res) => {
 	let newUser = new User();
 	res.json(newUser);
@@ -49,6 +49,12 @@ app.get("/api/users/new", (req, res) => {
 app.get("/api/companies/new", (req, res) => {
 	let newCompany = new Company();
 	res.json(newCompany);
+});
+
+// CREATE API ROUTE "/api/user/company", RETURN NEW USER AND NEW COMPANY
+app.get("/api/user/company", (req, res) => {
+	let userCompanyArr = [new User(), new Company()];
+	res.json(userCompanyArr);
 });
 
 // RUN EXPRESS SERVER
