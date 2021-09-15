@@ -45,3 +45,8 @@ packages/react-devtools-shell/dist
 packages/react-devtools-scheduling-profiler/dist
 javascript/fundamentals/practice/scope.js
 .DS_Store
+Express/HelloExpress.zip
+Express/HelloExpress/package-lock.json
+Express/HelloExpress/package.json
+Express/HelloExpress/server.js
+.DS_Store
