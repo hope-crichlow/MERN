@@ -20,7 +20,7 @@ const Planets = () => {
 	return (
 		<div>
 			<fieldset>
-				<legend>Planets.jsx</legend>
+				{/* <legend>Planets.jsx</legend> */}
 				<h2>{planet.name}</h2>
 				{planet ? (
 					<div>

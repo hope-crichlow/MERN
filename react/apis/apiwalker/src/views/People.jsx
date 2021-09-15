@@ -20,7 +20,7 @@ const People = () => {
 	return (
 		<div>
 			<fieldset>
-				<legend>People.jsx</legend>
+				{/* <legend>People.jsx</legend> */}
 				<h3>{person.name}</h3>
 				{person ? (
 					<div>

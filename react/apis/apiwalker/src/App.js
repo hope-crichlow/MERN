@@ -1,7 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Form from "./components/Form";
-import Main from "./components/Main";
 import Planets from "./views/Planets";
 import People from "./views/People";
 import Error from "./views/Error";
@@ -9,7 +8,6 @@ import Error from "./views/Error";
 function App() {
 	return (
 		<div>
-			<Main />
 			<BrowserRouter>
 				<Form />
 				<Switch>
