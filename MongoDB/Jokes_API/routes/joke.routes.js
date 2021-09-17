@@ -2,14 +2,16 @@ const JokeController = require("../controllers/joke.controller");
 
 // DEFINE ROUTES
 module.exports = app => {
-  // TEST ROUTE
+// TEST ROUTE
   app.get("/api/test", JokeController.test),
-  // CREATE
+// CREATE
   // Listening for a post request to "/api/jokes/new". When request is made execute createJoke method
   app.post("/api/jokes/new", JokeController.createJoke),
-  // READ
+// READ
   app.get("/api/jokes", JokeController.allJokes),
   app.get("/api/jokes/:joke_id", JokeController.oneJoke),
-  // UPDATE
-  app.put("/api/jokes/:joke_id", JokeController.updateJoke)
-}
+// UPDATE
+  app.put("/api/jokes/:joke_id", JokeController.updateJoke),
+// DELETE
+  app.delete("/api/jokes/:joke_id", JokeController.deleteJoke)
+};

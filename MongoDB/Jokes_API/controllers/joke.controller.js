@@ -43,3 +43,10 @@ module.exports.updateJoke = (req, res) => {
 
 //////////////////////// DELETE ////////////////////////
 // Export a function to delete a joke
+module.exports.deleteJoke = (req, res) => {
+	const { joke_id } = req.params;
+	
+	Joke.findOneAndDelete({ _id: joke_id })
+		.then((response) => res.json(response))
+		.catch((err) => res.json(err));
+};
