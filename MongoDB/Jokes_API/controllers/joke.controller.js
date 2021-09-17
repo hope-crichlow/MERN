@@ -15,6 +15,11 @@ module.exports.createJoke = (req, res) => {
 }
 //////////////////////// READ ///////////////////////////
 // Export a function to get all jokes
+module.exports.allJokes = (req, res) => {
+	Joke.find({})
+		.then(allJokes => res.json(allJokes))
+		.catch(err => res.json(err))
+}
 // Export a function to get a single joke
 
 ///////////////////////// UPDATE ////////////////////////

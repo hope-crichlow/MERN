@@ -4,6 +4,9 @@ const JokeController = require("../controllers/joke.controller");
 module.exports = app => {
   // TEST ROUTE
   app.get("/api/test", JokeController.test),
-		// Listening for a post request to "/api/jokes/new". When request is made execute createJoke method
-	app.post("/api/jokes/new", JokeController.createJoke)
+  // CREATE
+    // Listening for a post request to "/api/jokes/new". When request is made execute createJoke method
+	app.post("/api/jokes/new", JokeController.createJoke),
+  // READ
+  app.get("/api/jokes", JokeController.allJokes)
 }
