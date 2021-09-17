@@ -21,7 +21,14 @@ module.exports.allJokes = (req, res) => {
 		.catch(err => res.json(err))
 }
 // Export a function to get a single joke
-
+module.exports.oneJoke = (req, res) => {
+	// PULL ID FROM req.params OBJECT
+	const { joke_id } = req.params;
+	
+	Joke.find({ _id: joke_id })
+		.then((oneJoke) => res.json(oneJoke))
+		.catch((err) => res.json(err));
+};
 ///////////////////////// UPDATE ////////////////////////
 // Export a function to update a joke
 
