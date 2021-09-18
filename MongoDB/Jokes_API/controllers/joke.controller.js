@@ -9,7 +9,7 @@ module.exports.test = (req, res) => {
 //////////////////////// CREATE /////////////////////////
 // Export a function to create a joke
 module.exports.createJoke = (req, res) => {
-	// Create a new document to store in the User collection and save it to the DB.
+	// Create a new document to store in the Joke collection and save it to the DB.
 	Joke.create(req.body) // req.body is an object containing all the joke's data.
 		.then((newJoke) => res.json(newJoke)) // SUCCESS
 		// If there's an error and the record was not saved, this (err) will contain validation errors.
