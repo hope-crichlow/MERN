@@ -9,24 +9,27 @@ module.exports.test = (req, res) => {
 //////////////////////// CREATE /////////////////////////
 // Export a function to create a joke
 module.exports.createJoke = (req, res) => {
-	Joke.create(req.body)
-		.then(newJoke => res.json(newJoke))	// SUCCESS
-		.catch(err => res.json(err));	// NOT SUCCESSFUL
+	// Create a new document to store in the User collection and save it to the DB.
+	Joke.create(req.body) // req.body is an object containing all the joke's data.
+		.then((newJoke) => res.json(newJoke)) // SUCCESS
+		// If there's an error and the record was not saved, this (err) will contain validation errors.
+		.catch((err) => res.json(err)); // NOT SUCCESSFUL
 };
 
 //////////////////////// READ ///////////////////////////
 // Export a function to get all jokes
 module.exports.allJokes = (req, res) => {
+	// Retrieve an array of all documents in the Joke collection
 	Joke.find({})
-		.then(allJokes => res.json(allJokes))
-		.catch(err => res.json(err));
+		.then((allJokes) => res.json(allJokes))
+		.catch((err) => res.json(err));
 };
 // Export a function to get a single joke
 module.exports.oneJoke = (req, res) => {
 	// PULL ID FROM req.params OBJECT
 	const { joke_id } = req.params;
-	
-	Joke.find({ _id: joke_id })
+	// Retrieve 1 document (the first record found) matching the query object criteria
+	Joke.findOne({ _id: joke_id })
 		.then((oneJoke) => res.json(oneJoke))
 		.catch((err) => res.json(err));
 };
@@ -45,7 +48,7 @@ module.exports.updateJoke = (req, res) => {
 // Export a function to delete a joke
 module.exports.deleteJoke = (req, res) => {
 	const { joke_id } = req.params;
-	
+	// Delete 1 document that matches the query object criteria
 	Joke.findOneAndDelete({ _id: joke_id })
 		.then((response) => res.json(response))
 		.catch((err) => res.json(err));

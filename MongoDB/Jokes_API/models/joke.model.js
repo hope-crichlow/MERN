@@ -18,7 +18,8 @@ const JokeSchema = new mongoose.Schema({  // Structre of a joke object
 },{ timestamps: true });  // Creates createdAt and updatedAt attributes
 
 // 2. REGISTERING THE SCHEMA W/I MONGOOSE LIBRARY
-const Joke = mongoose.model("Joke", JokeSchema);  // Pass in collection name and schema
+// Create a constructor function for model and store in variable 'Joke'
+const Joke = mongoose.model("Joke", JokeSchema);  // Pass in collection name and schema 
 
 // 3. EXPORT MONGOOSE MODEL
 module.exports = Joke;
