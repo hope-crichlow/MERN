@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from "axios";
+import Form from "./components/Form";
 
 function App() {
 	axios
@@ -11,6 +12,7 @@ function App() {
 		<div className="App">
 			<h1>Hello Sunshine</h1>
 			<BrowserRouter>
+        <Form />
         <Switch>
           <Route exact path="/">
             
