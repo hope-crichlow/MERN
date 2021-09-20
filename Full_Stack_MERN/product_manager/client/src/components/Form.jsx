@@ -24,6 +24,9 @@ const Form = ({ createNewProduct }) => {
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
 		createNewProduct(formState)
+    // CLEAR ERROR MESSAGES 
+      .then(()=> setValidState(true))
+    // CLEAR FORM DATA 
 			.then(() => {
 				setFormState({
 					title: "",
@@ -32,7 +35,7 @@ const Form = ({ createNewProduct }) => {
 				});
 			})
 			.catch((err) => {
-				console.log("CATCH: ", err.response.data);
+				console.log("CATCH IT: ", err.response.data);
 				const { errors } = err.response.data;
 				let errorObj = {};
 				for (let [key, value] of Object.entries(errors)) {
@@ -57,6 +60,9 @@ const Form = ({ createNewProduct }) => {
 							onChange={changeHandler}
 							value={formState.title}
 						/>
+						{validState.title ? (
+							<p style={{ color: "red" }}>{validState.title}</p>
+						) : null}
 					</div>
 					<div>
 						<label className="form-label">Price: </label>
@@ -67,6 +73,9 @@ const Form = ({ createNewProduct }) => {
 							onChange={changeHandler}
 							value={formState.price}
 						/>
+						{validState.price ? (
+							<p style={{ color: "red" }}>{validState.price}</p>
+						) : null}
 					</div>
 					<div>
 						<label className="form-label">Description: </label>
@@ -77,6 +86,9 @@ const Form = ({ createNewProduct }) => {
 							onChange={changeHandler}
 							value={formState.description}
 						/>
+						{validState.description ? (
+							<p style={{ color: "red" }}>{validState.description}</p>
+						) : null}
 					</div>
 					<button type="submit" className="btn form-control">
 						Create
