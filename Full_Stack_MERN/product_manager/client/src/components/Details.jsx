@@ -7,15 +7,15 @@ const Details = () => {
 	const history = useHistory();
 	const [productState, setProductState] = useState(null);
 
-	useEffect((id) => {
+	useEffect(() => {
 		axios
-			.get(`http://localhost:8000/api/product/${id}`)
+			.get(`http://localhost:8000/api/product/` + id)
 			.then((res) => setProductState(res.data))
 			// .then((res) => console.log("your product: ", res.data))
 			.catch((err) => console.log(err));
 	}, []);
 
-  const deleteHandler = () => {
+	const deleteHandler = () => {
 		axios
 			.delete(`http://localhost:8000/api/product/${id}`)
 			.then((res) => history.push("/"))
