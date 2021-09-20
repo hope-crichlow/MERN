@@ -36,7 +36,14 @@ const Details = () => {
 						<h1>{productState.title}</h1>
 						<h3>Price: $ {productState.price}.00</h3>
 						<h3>Description: {productState.description}</h3>
-						<button className="btn btn-warning" onClick={deleteHandler}>
+						<Link
+							className="btn"
+							to={"/" + id + "/edit"}
+							style={{ marginRight: "5px" }}
+						>
+							Edit
+						</Link>
+						<button className="btn btn-outline-warning" onClick={deleteHandler}>
 							Delete
 						</button>
 					</div>

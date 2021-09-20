@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory, Link } from "react-router-dom";
+import axios from "axios";
 
-const Form = ({ createNewProduct }) => {
 
-	const [formState, setFormState] = useState({
-		title: "",
-		price: 0,
-		description: "",
-	});
+const Edit = () => {
+	const { id } = useParams();
+	const history = useHistory();
 
+	useEffect(() => {
+		axios
+			.get(`http://localhost:8000/api/product/` + id)
+			.then((res) => setFormState(res.data))
+			// .then((res) => console.log("your product: ", res.data))
+			.catch((err) => console.log(err));
+	}, [id]);
+
+	const [formState, setFormState] = useState({});
 	const [validState, setValidState] = useState({});
 
 	const changeHandler = (e) => {
@@ -18,35 +26,33 @@ const Form = ({ createNewProduct }) => {
 		});
 	};
 
-	const onSubmitHandler = (e) => {
-		e.preventDefault();
-		createNewProduct(formState)
-			// CLEAR ERROR MESSAGES
-			.then(() => setValidState(true))
-			// CLEAR FORM DATA
-			.then(() => {
-				setFormState({
-					title: "",
-					price: 0,
-					description: "",
+  const submitHandler = (e) => {
+			e.preventDefault();
+			axios
+				.put(`http://localhost:8000/api/product/${id}`, formState)
+				.then((res) => {
+					history.push(`/${id}`);
+				})
+				.catch((err) => {
+					// console.log("CATCH: ", err.response.data)
+					const { errors } = err.response.data;
+					let errorObj = {};
+					for (let [key, value] of Object.entries(errors)) {
+						errorObj[key] = value.message;
+					}
+					setValidState(errorObj);
 				});
-			})
-			.catch((err) => {
-				console.log("CATCH IT: ", err.response.data);
-				const { errors } = err.response.data;
-				let errorObj = {};
-				for (let [key, value] of Object.entries(errors)) {
-					errorObj[key] = value.message;
-				}
-				console.log(errorObj);
-				setValidState(errorObj);
-			});
-	};
+		};
 
 	return (
 		<div className="container px-4 ">
+			<div className="align-items-right">
+				<Link to={"/"} className="btn">
+					Dashboard
+				</Link>
+			</div>
 
-				<form onSubmit={onSubmitHandler}>
+				<form onSubmit={submitHandler}>
 					<div>
 						<label className="form-label">Title: </label>
 						<input
@@ -87,12 +93,11 @@ const Form = ({ createNewProduct }) => {
 						) : null}
 					</div>
 					<button type="submit" className="btn form-control">
-						Create
+						Update
 					</button>
 				</form>
-
 		</div>
 	);
 };
 
-export default Form;
+export default Edit;

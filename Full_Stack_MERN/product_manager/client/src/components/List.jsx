@@ -16,7 +16,7 @@ const List = ({ products, deleteHandler }) => {
 							>
 								<Link to={`/${product._id}`}>{product.title}</Link>
 								<button
-									className="btn btn-warning"
+									className="btn btn-outline-warning"
 									onClick={() => deleteHandler(product._id)}
 								>
 									Delete
