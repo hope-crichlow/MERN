@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import Main from "./views/Main";
+import Details from "./components/Details";
 
 function App() {
 	axios
@@ -10,11 +11,14 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Product Manager</h1>
+			
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/">
 						<Main />
+					</Route>
+					<Route exact path="/:id">
+						<Details />
 					</Route>
 				</Switch>
 			</BrowserRouter>

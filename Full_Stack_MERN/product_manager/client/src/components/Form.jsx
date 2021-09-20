@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 // import { useHistory } from "react-router-dom";
 
 const Form = ({ createNewProduct }) => {
@@ -50,6 +50,7 @@ const Form = ({ createNewProduct }) => {
 		<div className="container px-4 ">
 			<fieldset>
 				<legend>Form.jsx</legend>
+				<h1>Product Manager</h1>
 				<form onSubmit={onSubmitHandler}>
 					<div>
 						<label className="form-label">Title: </label>
