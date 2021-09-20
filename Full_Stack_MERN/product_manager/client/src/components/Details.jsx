@@ -13,7 +13,7 @@ const Details = () => {
 			.then((res) => setProductState(res.data))
 			// .then((res) => console.log("your product: ", res.data))
 			.catch((err) => console.log(err));
-	}, []);
+	}, [id]);
 
 	const deleteHandler = () => {
 		axios
