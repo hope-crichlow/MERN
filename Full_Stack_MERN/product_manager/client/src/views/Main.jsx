@@ -18,10 +18,20 @@ const Main = () => {
 			.post("http://localhost:8000/api/product/new", newProduct)
 			.then((res) => console.log(res))
 	};
+
+  const deleteHandler = (id) => {
+		axios
+			.delete(`http://localhost:8000/api/product/${id}`)
+			.then((res) => setProducts((prev) => prev.filter((p) => p._id !== id)))
+			.catch((err) => console.log(err));
+	};
+
 	return (
-		<div>
-			<Form createNewProduct={createNewProduct} />
-			<List products={products} />
+		<div className="container px-4 ">
+			<div className="row align-items-center justify-content-between gx-5 ">
+				<Form createNewProduct={createNewProduct} />
+				<List products={products} deleteHandler={deleteHandler} />
+			</div>
 		</div>
 	);
 };

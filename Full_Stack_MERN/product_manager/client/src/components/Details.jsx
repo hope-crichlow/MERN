@@ -23,23 +23,27 @@ const Details = () => {
 	};
 
 	return (
-		<div>
-			<Link to={"/"} className="btn">
-				Dashboard
-			</Link>
+		<div className="container px-4 ">
+			<div className="align-items-right">
+				<Link to={"/"} className="btn">
+					Dashboard
+				</Link>
+			</div>
 
-			{productState ? (
-				<div>
-					<h1>{productState.title}</h1>
-					<h3>Price: $ {productState.price}.00</h3>
-					<h3>Description: {productState.description}</h3>
-					<button className="btn btn-warning" onClick={deleteHandler}>
-						Delete
-					</button>
-				</div>
-			) : (
-				<h1>Loading....</h1>
-			)}
+			<div className="row align-items-center justify-content-between gx-5 ">
+				{productState ? (
+					<div>
+						<h1>{productState.title}</h1>
+						<h3>Price: $ {productState.price}.00</h3>
+						<h3>Description: {productState.description}</h3>
+						<button className="btn btn-warning" onClick={deleteHandler}>
+							Delete
+						</button>
+					</div>
+				) : (
+					<h1>Loading....</h1>
+				)}
+			</div>
 		</div>
 	);
 };

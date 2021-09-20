@@ -1,7 +1,7 @@
 // import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const List = ({ products }) => {
+const List = ({ products, deleteHandler }) => {
 	return (
 		<div>
 			<h2>All Products</h2>
@@ -15,6 +15,12 @@ const List = ({ products }) => {
 								className="list-group-item d-flex justify-content-between align-items-center "
 							>
 								<Link to={`/${product._id}`}>{product.title}</Link>
+								<button
+									className="btn btn-warning"
+									onClick={() => deleteHandler(product._id)}
+								>
+									Delete
+								</button>
 							</li>
 						);
 					})}
