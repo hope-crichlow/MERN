@@ -10,7 +10,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Hello Sunshine</h1>
+			<h1>Product Manager</h1>
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/">
