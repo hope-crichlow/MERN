@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from "axios";
-import Form from "./components/Form";
+import Main from "./views/Main";
 
 function App() {
 	axios
@@ -12,13 +12,12 @@ function App() {
 		<div className="App">
 			<h1>Hello Sunshine</h1>
 			<BrowserRouter>
-        <Form />
-        <Switch>
-          <Route exact path="/">
-            
-          </Route>
-        </Switch>
-      </BrowserRouter>
+				<Switch>
+					<Route exact path="/">
+						<Main />
+					</Route>
+				</Switch>
+			</BrowserRouter>
 		</div>
 	);
 }
