@@ -1,6 +1,9 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import Main from "./views/Main";
+import Dashboard from "./views/Dashboard";
+import New from "./views/New";
+import Edit from "./views/Edit";
 
 function App() {
 	axios
@@ -10,12 +13,20 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Favorite Authors</h1>
 			<BrowserRouter>
+				<h1>Favorite Authors</h1>
+				<Main />
 				<Switch>
 					<Route exact path="/">
-            <Main />
-          </Route>
+						<Dashboard />
+					</Route>
+					<Route exact path="/new">
+						<New />
+					</Route>
+					<Route exact path="/:id">
+						<Edit />
+					</Route>
+					<Route exact path="/edit/:id"></Route>
 				</Switch>
 			</BrowserRouter>
 		</div>
