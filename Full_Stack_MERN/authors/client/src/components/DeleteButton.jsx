@@ -6,6 +6,7 @@ const DeleteButton = (props) => {
 	const history = useHistory();
 	const { authorID, successCallback } = props;
 
+
 	const deleteHandler = (e) => {
 		axios
 			.delete(`http://localhost:8000/api/author/${authorID}`)

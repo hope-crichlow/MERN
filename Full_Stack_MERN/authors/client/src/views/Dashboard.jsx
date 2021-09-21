@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+// import React, { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import ListOfObjects from "../components/ListOfObjects";
 
 const Dashboard = () => {
-	const [authors, setAuthors] = useState([]);
+	// const [authors, setAuthors] = useState([]);
 	// const [state, setState] = useState(false);
 
-	useEffect(() => {
-		axios
-			.get("http://localhost:8000/api/authors")
-			.then((res) => setAuthors(res.data))
-			.catch((err) => console.log(err));
-	}, []);
+	// useEffect(() => {
+	// 	axios
+	// 		.get("http://localhost:8000/api/authors")
+	// 		.then((res) => setAuthors(res.data))
+	// 		.catch((err) => console.log(err));
+	// }, []);
 
 	// const deleteHandler = (id) => {
 	// 	axios
@@ -27,7 +28,7 @@ const Dashboard = () => {
 				<div>
 					<h3 className="greeting">We Have Quotes By:</h3>
 				</div>
-				<ListOfObjects authors={authors} />
+				<ListOfObjects />
 				<div></div>
 			</fieldset>
 		</div>

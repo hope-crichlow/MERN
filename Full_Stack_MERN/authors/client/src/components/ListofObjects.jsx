@@ -36,7 +36,15 @@ const ListOfObjects = (props) => {
 							{authors.map((author, i) => {
 								return (
 									<tr key={i}>
-										<td> {author.name}</td>
+										<td>
+											<Link
+												to={`/${author._id}`}
+												className="btn"
+												style={{ marginRight: "5px" }}
+											>
+												{author.name}
+											</Link>
+										</td>
 										<td>
 											<Link
 												to={`/edit/${author._id}`}

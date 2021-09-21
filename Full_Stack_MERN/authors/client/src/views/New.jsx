@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
+import Form from "../components/Form";
 
 const New = () => {
-  return (
+	return (
 		<div>
 			<fieldset>
 				<legend>New.jsx</legend>
-				<div>
-					<h3 className="greeting">Add A New Author:</h3>
-				</div>
+				<Form />
 			</fieldset>
 		</div>
 	);
-}
+};
 
-export default New
+export default New;

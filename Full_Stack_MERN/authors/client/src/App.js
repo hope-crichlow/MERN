@@ -4,6 +4,7 @@ import Main from "./views/Main";
 import Dashboard from "./views/Dashboard";
 import New from "./views/New";
 import Edit from "./views/Edit";
+import Details from "./components/Details";
 
 function App() {
 	axios
@@ -24,9 +25,11 @@ function App() {
 						<New />
 					</Route>
 					<Route exact path="/:id">
+						<Details />
+					</Route>
+					<Route exact path="/edit/:id">
 						<Edit />
 					</Route>
-					<Route exact path="/edit/:id"></Route>
 				</Switch>
 			</BrowserRouter>
 		</div>
