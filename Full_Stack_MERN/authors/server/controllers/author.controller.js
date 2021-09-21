@@ -15,6 +15,8 @@ module.exports.createAuthor = (req, res) => {
 module.exports.getAllAuthors = (req, res) => {
 	// Retrieve an array of all documents in the Author collection
 	Author.find({})
+		// SORT AUTHORS ALPHABETICALLY 
+		.sort({ name: "asc" })
 		.then((listOfAuthorObjects) => res.json(listOfAuthorObjects))
 		.catch((errorFound) => res.json(errorFound));
 };
