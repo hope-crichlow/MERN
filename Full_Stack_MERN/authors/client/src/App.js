@@ -14,7 +14,6 @@ function App() {
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/">
-            <Dashboard />
             <Main />
           </Route>
 				</Switch>
